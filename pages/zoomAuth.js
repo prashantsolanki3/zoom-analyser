@@ -34,15 +34,7 @@ const Export = () => {
     return <ApplicationWrapper>
         <Component/>
     </ApplicationWrapper>
-    // return <Component/>
 }
 
 
 export default Export;
-
-
-const ZoomAuth = () => {
-   
-}
-
-export default ZoomAuth

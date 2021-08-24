@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { Image } from '../components';
+import ApplicationWrapper from '../bricks/ApplicationWrapper';
 
 const Component = () => {
     return (<Grid container justifyContent='flex-start' direction='column' alignItems='center'>

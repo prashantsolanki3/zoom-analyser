@@ -9,8 +9,8 @@ const Component = () => {
     const makeLink = () => {
         const thisUrl = new URL('https://zoom.us/oauth/authorize')
         thisUrl.searchParams.set('response_type', 'code')
-        thisUrl.searchParams.set('redirect_uri', process.env.NEXT_PUBLIC_NGROK_URL)
-        thisUrl.searchParams.set('client_id', process.env.NEXT_PUBLIC_ZOOM_CLIENT)
+        thisUrl.searchParams.set('redirect_uri', process.env.NEXT_PUBLIC_REDIRECT_URL)
+        thisUrl.searchParams.set('client_id', process.env.NEXT_PUBLIC_ZOOM_CLIENT_ID)
         setUrl(thisUrl.href)
     }
 

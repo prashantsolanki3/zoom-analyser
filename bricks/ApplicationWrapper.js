@@ -14,12 +14,12 @@ const AppplicationWrapper = ({ children }) => {
   return (
     <ContextManager>
       <ThemeProvider>
-        <LoginCheck>
+        {/* <LoginCheck> */}
           {children}
           <GlobalStyles />
           {DeveloperConfig.visible ? <DevModeSwitch /> : ''}
           <Notification />
-        </LoginCheck>
+        {/* </LoginCheck> */}
       </ThemeProvider>
     </ContextManager>
   );

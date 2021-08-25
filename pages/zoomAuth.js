@@ -3,8 +3,8 @@ import { Grid, Typography, Link } from '@material-ui/core';
 import { withIronSession } from "next-iron-session";
 import ApplicationWrapper from '../bricks/ApplicationWrapper';
 
-const Component = () => { 
-    // console.log(zoomUser)
+const Component = ({zoomUser}) => { 
+    console.log(zoomUser)
     const [url, setUrl] = useState(null)
 
     const makeLink = () => {
@@ -39,7 +39,7 @@ const Component = () => {
 }
 
 export const getServerSideProps = async ({req, res}) => {
-    const thisUrl = new URL(req.url, `http://${req.headers.host}`)
+    const thisUrl = new URL(req.url, `https://${req.headers.host}`)
     if (thisUrl.searchParams.get('code')){
         const urlParam = thisUrl.searchParams.get('code')
 
@@ -53,16 +53,6 @@ export const getServerSideProps = async ({req, res}) => {
         zoomUrl.searchParams.set('code', urlParam)
         zoomUrl.searchParams.set('redirect_uri', `${process.env.NEXT_PUBLIC_FRONTEND_HOSTNAME}/zoomAuth`)
         
-        // try {
-        //     const options = {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Basic ' + b64string
-        //         }
-        //     }
-        //     const response = await fetch(zoomUrl.href, options)  
-        //     const json = await response.json()
             try {
                 const options = {
                     method: 'POST',
@@ -73,7 +63,7 @@ export const getServerSideProps = async ({req, res}) => {
                 }
                 const response = await fetch(zoomUrl.href, options)  
                 const json = await response.json()
-            
+                console.log(json)
                 if (json.access_token){
                     const newOptions = {
                         method: 'GET',
@@ -84,20 +74,17 @@ export const getServerSideProps = async ({req, res}) => {
                     const preUser = await fetch('https://api.zoom.us/v2/users', newOptions)
                     const zoomUser = await preUser.json()
                     console.log(zoomUser)
-                    // return {
-                    //     props: {zoomUser}
-                    // }
+                    return {
+                        props: {zoomUser}
+                    }
                 }
             }
             catch(e){
-                console.log(e)
+                console.log(e);
             }
-        // }
-        // catch(e){
-        //     console.log(e)
-        // }
 
-    }
+    } 
+    return { props: {zoomUser: {}}}
 }
 
 const Export = () => {

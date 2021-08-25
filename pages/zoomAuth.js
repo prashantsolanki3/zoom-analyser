@@ -3,8 +3,8 @@ import { Grid, Typography, Link } from '@material-ui/core';
 import { withIronSession } from "next-iron-session";
 import ApplicationWrapper from '../bricks/ApplicationWrapper';
 
-const Component = ({zoomUser}) => { 
-    console.log(zoomUser)
+const Component = () => { 
+    // console.log(zoomUser)
     const [url, setUrl] = useState(null)
 
     const makeLink = () => {
@@ -83,10 +83,10 @@ export const getServerSideProps = async ({req, res}) => {
                     }
                     const preUser = await fetch('https://api.zoom.us/v2/users', newOptions)
                     const zoomUser = await preUser.json()
-            
-                    return {
-                        props: {zoomUser}
-                    }
+                    console.log(zoomUser)
+                    // return {
+                    //     props: {zoomUser}
+                    // }
                 }
             }
             catch(e){

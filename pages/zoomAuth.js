@@ -3,17 +3,10 @@ import { Grid, Typography, Link } from '@material-ui/core';
 import { withIronSession } from "next-iron-session";
 import ApplicationWrapper from '../bricks/ApplicationWrapper';
 
-const Component = ({user, zoomUser, initialZoomCookie}) => { 
+const Component = () => { 
     const [url, setUrl] = useState(null)
-    const [thisZoomUser, setThisZoomUser] = useState(initialZoomCookie)
-    
-    console.log(zoomUser)
-    console.log(initialZoomCookie)
-
 
     const makeLink = () => {
-
-        console.log(`${process.env.NEXT_PUBLIC_REDIRECT_URL} ${process.env.NEXT_PUBLIC_ZOOM_CLIENT_ID}`)
 
         const thisUrl = new URL('https://zoom.us/oauth/authorize')
         thisUrl.searchParams.set('response_type', 'code')

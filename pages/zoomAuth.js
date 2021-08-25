@@ -101,7 +101,7 @@ export const getServerSideProps = withIronSession(
             return {props: {}}
         }
         return {
-            props: {user, initialZoomCookie}
+            props: {}
         }
     },
     {

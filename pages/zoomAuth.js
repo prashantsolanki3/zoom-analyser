@@ -73,7 +73,12 @@ export const getServerSideProps = async ({req, res}) => {
                     }
                     const preUser = await fetch('https://api.zoom.us/v2/users', newOptions)
                     const zoomUser = await preUser.json()
-                    console.log(zoomUser)
+
+                    const preMeetingQos = await fetch(`https://api.zoom.us/v2/metrics/meetings/68277967178/participants/qos`, newOptions)
+                    const meetingQos = await preMeetingQos.json()
+
+
+                    console.log({meetingQos, zoomUser})
                     return {
                         props: {zoomUser}
                     }

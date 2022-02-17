@@ -22,7 +22,7 @@
     "https-proxy-agent": "^5.0.0",
     "moment-timezone": "^0.5.33",
     "net": "^1.0.2",
-    "next": "11.1.0",
+    "next": "12.1.0",
     "next-iron-session": "^4.2.0",
     "react": "17.0.2",
     "react-device-detect": "^1.17.0",

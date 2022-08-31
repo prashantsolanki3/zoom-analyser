@@ -20,7 +20,7 @@
     "formik": "^2.2.9",
     "fs": "^0.0.1-security",
     "https-proxy-agent": "^5.0.0",
-    "moment-timezone": "^0.5.33",
+    "moment-timezone": "^0.5.35",
     "net": "^1.0.2",
     "next": "11.1.0",
     "next-iron-session": "^4.2.0",
